@@ -12,10 +12,13 @@ interface Props {
 
 export const NavLinks = ({ icon, path }: Props) => {
   const currentPath = usePathname();
+  const isActive = currentPath === path;
 
   return (
-    <Button asChild variant="ghost" size="icon">
-      <Link href={path}>{icon}</Link>
+    <Button asChild variant="link" size="icon">
+      <Link className={isActive ? 'text-white' : ''} href={path}>
+        {icon}
+      </Link>
     </Button>
   );
 };

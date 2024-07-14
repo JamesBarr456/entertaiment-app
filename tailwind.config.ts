@@ -21,6 +21,9 @@ const config = {
       outfit: ['var(--font-outfit)']
     },
     extend: {
+      screens: {
+        '2xl': '1440px'
+      },
       colors: {
         /* custom colors */
         'main-red': 'hsl(0, 97%, 63%)',
