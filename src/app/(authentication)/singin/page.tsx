@@ -1,5 +1,7 @@
-import React from "react";
-
-export const SingInPage = () => {
-  return <div>SingInpage</div>;
-};
+export default function SignInPage() {
+  return (
+    <div>
+      <h1>Hello Singin</h1>
+    </div>
+  );
+}
