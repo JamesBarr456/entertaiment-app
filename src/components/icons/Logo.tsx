@@ -4,7 +4,7 @@ interface Props {
   color?: string;
 }
 
-export const Logo = ({ width = 33, height = 27, color = '#FC4747' }: Props) => {
+export const Logo = ({ width = 33, height = 27, color = "#FC4747" }: Props) => {
   return (
     <svg width={width} height={height} xmlns="http://www.w3.org/2000/svg">
       <path
