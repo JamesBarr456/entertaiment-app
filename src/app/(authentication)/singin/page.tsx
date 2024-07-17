@@ -11,15 +11,41 @@ import {
 import Link from "next/link";
 import { Input } from "@/components/ui/input";
 import { useForm } from "react-hook-form";
+import { useRouter } from "next/navigation";
 
+interface DatosFormularioRegistro {
+  email: string;
+  password: string;
+  confirmPassword: string;
+}
 export default function SignUpPage() {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
-  const onSubmit = handleSubmit((data) => {
-    console.log(data);
+  } = useForm<DatosFormularioRegistro>();
+
+  const router = useRouter();
+
+  const onSubmit = handleSubmit(async (data) => {
+    if (data.password !== data.confirmPassword) {
+      return alert("password do not match");
+    }
+
+    const res = await fetch("/api/auth/register", {
+      method: "POST",
+      body: JSON.stringify({
+        email: data.email,
+        password: data.password,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (res.ok) {
+      router.push("/login");
+    }
   });
   return (
     <form onSubmit={onSubmit}>
@@ -34,7 +60,11 @@ export default function SignUpPage() {
             <div className="flex flex-col space-y-6">
               <Input
                 {...register("email", {
-                  required: { value: true, message: "Can't be empty" },
+                  required: "El correo es obligatorio",
+                  pattern: {
+                    value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+                    message: "Email no es válido",
+                  },
                 })}
                 id="email"
                 placeholder="Email addres"
@@ -43,11 +73,17 @@ export default function SignUpPage() {
                 }`}
               />
               {errors.email && (
-                <span className="text-main-red text-sm">Can't be empty</span>
+                <span className="text-main-red text-sm">
+                  {errors.email.message}
+                </span>
               )}
               <Input
                 {...register("password", {
-                  required: { value: true, message: "Can't be empty" },
+                  required: "La contraseña es obligatoria",
+                  minLength: {
+                    value: 8,
+                    message: "La contraseña debe tener al menos 8 caracteres",
+                  },
                 })}
                 type="password"
                 id="password"
@@ -57,21 +93,30 @@ export default function SignUpPage() {
                 }`}
               />
               {errors.password && (
-                <span className="text-main-red text-sm">Can't be empty</span>
+                <span className="text-main-red text-sm">
+                  {errors.password.message}
+                </span>
               )}
               <Input
-                {...register("rptpassword", {
-                  required: { value: true, message: "Can't be empty" },
+                {...register("confirmPassword", {
+                  required: {
+                    value: true,
+                    message: "Confirmar el Password es requerido",
+                  },
                 })}
                 type="password"
-                id="repeat password"
+                id="confirmPassword"
                 placeholder="Repeat Password"
                 className={`border-b-gray-500 border-b bg-main-blue-dark text-white caret-main-red ${
-                  errors.rptpassword ? "border-b-main-red" : "border-b-gray-500"
+                  errors.confirmPassword
+                    ? "border-b-main-red"
+                    : "border-b-gray-500"
                 }`}
               />
-              {errors.rptpassword && (
-                <span className="text-main-red text-sm">Can't be empty</span>
+              {errors.confirmPassword && (
+                <span className="text-main-red text-sm">
+                  {errors.confirmPassword.message}
+                </span>
               )}
             </div>
           </div>
