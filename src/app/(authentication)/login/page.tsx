@@ -10,16 +10,33 @@ import {
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
+import { signIn } from "next-auth/react";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
+  const router = useRouter();
+  const [error, setError] = useState(null);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = handleSubmit((data) => {
-    console.log(data);
+  const onSubmit = handleSubmit(async (data) => {
+    const res = await signIn("credentials", {
+      email: data.email,
+      password: data.password,
+      redirect: false,
+    });
+
+    if (res.error) {
+      alert(res.error);
+    } else {
+      console.log("enviando a homepage");
+      router.push("/bookmarked");
+      router.refresh();
+    }
   });
   return (
     <form onSubmit={onSubmit}>
