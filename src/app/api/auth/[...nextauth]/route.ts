@@ -1,17 +1,25 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import prisma from "@/lib/prisma";
-import NextAuth from "next-auth";
+import NextAuth, { AuthOptions } from "next-auth";
 import bcrypt from "bcrypt";
 import CredentialsProvider from "next-auth/providers/credentials";
 
-export const authOptions = {
+interface Credentials {
+  email: string;
+  password: string;
+}
+
+interface User {
+  id: string;
+  email: string;
+}
+
+export const authOptions: AuthOptions = {
   providers: [
     CredentialsProvider({
       name: "Credentials",
-      async authorize(
-        credentials: { email: string; password: string },
-        req: NextApiRequest
-      ) {
+      //authorize( actualmente tira un error y no quiero desactiar el modo stricto de TS El motivo es que NextAuth.js se desarrolló con, "strict": false pero actualmente están trabajando para que sea compatible con strict establecido en true.)
+      async authorize(credentials: Credentials): Promise<User> {
         const userFound = await prisma.user.findUnique({
           where: {
             email: credentials.email,
@@ -19,7 +27,7 @@ export const authOptions = {
         });
 
         if (!userFound) {
-          throw new Error("Usuario no encontrado");
+          throw new Error("Invalid email");
         }
 
         const matchPassword = await bcrypt.compare(
@@ -28,7 +36,7 @@ export const authOptions = {
         );
 
         if (!matchPassword) {
-          throw new Error("Contraseña incorrecta");
+          throw new Error("Invalid password");
         }
 
         return {
