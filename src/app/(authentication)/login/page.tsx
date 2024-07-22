@@ -38,7 +38,7 @@ export default function LoginPage() {
     });
 
     if (res?.ok) {
-      router.push("/bookmarked");
+      router.push("/home");
       router.refresh();
     } else if (res?.error) {
       setError(res.error);
@@ -62,7 +62,7 @@ export default function LoginPage() {
                 className={`border-b-gray-500 border-b bg-main-blue-dark caret-main-red ${
                   errors.password ? "border-b-main-red" : "border-b-gray-500"
                 }`}
-                autocomplete="off"
+                autoComplete="off"
               />
               {errors.email || error === "Invalid email" ? (
                 <span className="absolute top-0.5 right-0 text-main-red text-sm">

@@ -45,6 +45,8 @@ export default function SignUpPage() {
 
     if (res.ok) {
       router.push("/login");
+    } else {
+      console.log("Error el Email ya existe");
     }
   });
   return (
@@ -67,7 +69,7 @@ export default function SignUpPage() {
                 })}
                 id="email"
                 placeholder="Email addres"
-                autocomplete="nope"
+                autoComplete="nope"
                 className={`border-b-gray-500 border-b bg-main-blue-dark  caret-main-red ${
                   errors.password ? "border-b-main-red" : "border-b-gray-500"
                 }`}
