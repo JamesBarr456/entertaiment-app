@@ -1,7 +1,11 @@
+import { CarouselMovies, CatalogueMovies } from "@/components";
+
 export default function HomePage() {
   return (
-    <div>
-      <h1 className="text-white">Hello Page desde home de dashboard</h1>
-    </div>
+    <section>
+      <h1 className="mb-6 text-xl font-light text-white">Trending</h1>
+      <CarouselMovies />
+      <CatalogueMovies title="Recommended for you" />
+    </section>
   );
 }

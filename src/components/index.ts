@@ -1,2 +1,5 @@
-export { NavLinks } from './NavLinks';
-export { Navbar } from './Navbar';
+export { CatalogueMovies } from "./CatalogueMovies";
+export { CarouselMovies } from "./CarouselMovies";
+export { SearchBar } from "./SearchBar";
+export { NavLinks } from "./NavLinks";
+export { Navbar } from "./Navbar";

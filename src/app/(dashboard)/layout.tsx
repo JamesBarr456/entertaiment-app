@@ -1,4 +1,4 @@
-import { Navbar } from "@/components";
+import { Navbar, SearchBar } from "@/components";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -12,8 +12,11 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="grid min-h-screen grid-rows-[auto_1fr] bg-main-blue-very-dark 2xl:grid-cols-[auto_1fr] 2xl:grid-rows-1">
+    // <div className="min-h-screen grid-rows-[auto_auto_1fr] gap-6 2xl:grid 2xl:grid-cols-[auto_1fr]">
+    <div className="min-h-screen">
       <Navbar />
+      <SearchBar />
+
       <main>{children}</main>
     </div>
   );

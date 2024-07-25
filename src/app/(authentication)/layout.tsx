@@ -7,10 +7,10 @@ export default function AuthenticationLayout({
 }) {
   return (
     <div>
-      <div className="flex h-screen w-full flex-col items-center gap-14 overflow-auto bg-main-blue-very-dark px-6 pt-12">
+      <div className="flex min-h-screen flex-col items-center gap-14 bg-main-blue-very-dark px-6 pt-12">
         {/* Aca hay que poner los componentes de sign In y Login */}
         <div>
-          <Logo width={33} height={27} />
+          <Logo />
         </div>
         <div>{children}</div>
       </div>
