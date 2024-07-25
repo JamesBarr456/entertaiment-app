@@ -1,3 +1,4 @@
+export { GridGenres } from "./genre/GridGenres";
 export { CatalogueMovies } from "./CatalogueMovies";
 export { CarouselMovies } from "./CarouselMovies";
 export { SearchBar } from "./SearchBar";
