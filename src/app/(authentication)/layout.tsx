@@ -7,7 +7,7 @@ export default function AuthenticationLayout({
 }) {
   return (
     <div>
-      <div className="flex min-h-screen flex-col items-center gap-14 bg-main-blue-very-dark px-6 pt-12">
+      <div className="bg-main-blue-very-dark h-screen w-full flex flex-col items-center pt-12 md:pt-20 gap-14 px-6 overflow-auto transition-all duration-300 ease-in-out ">
         {/* Aca hay que poner los componentes de sign In y Login */}
         <div>
           <Logo />
