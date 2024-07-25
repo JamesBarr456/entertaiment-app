@@ -39,7 +39,7 @@ const iconLinks = [
 
 export const Navbar = () => {
   return (
-    <header className="-mx-4 md:-mx-0 md:pt-6 2xl:pt-8">
+    <header className="-mx-4 border md:-mx-0 md:pt-6 2xl:pt-0">
       <nav className="flex h-14 items-center justify-between bg-main-blue-dark px-4 md:h-[72px] md:rounded-lg 2xl:h-full 2xl:max-h-[960px] 2xl:w-24 2xl:flex-col 2xl:gap-14 2xl:p-6">
         <Link href="/">
           <Logo />

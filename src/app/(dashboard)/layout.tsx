@@ -12,9 +12,10 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    // <div className="min-h-screen grid-rows-[auto_auto_1fr] gap-6 2xl:grid 2xl:grid-cols-[auto_1fr]">
-    <div className="min-h-screen">
-      <Navbar />
+    <div className="min-h-screen 2xl:grid 2xl:grid-cols-[auto_1fr] 2xl:grid-rows-[auto_1fr] 2xl:gap-8 2xl:pt-8">
+      <div className="2xl:row-span-2">
+        <Navbar />
+      </div>
       <SearchBar />
 
       <main>{children}</main>

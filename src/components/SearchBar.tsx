@@ -3,7 +3,7 @@ import { Input } from "./ui/input";
 
 export const SearchBar = () => {
   return (
-    <div className="flex items-center gap-3">
+    <div className="flex items-center gap-3 2xl:pt-8">
       <Search />
       <Input
         type="search"
