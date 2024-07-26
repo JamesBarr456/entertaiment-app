@@ -2,10 +2,13 @@ import { CarouselMovies, CatalogueMovies } from "@/components";
 
 export default function HomePage() {
   return (
-    <section>
-      <h1 className="mb-6 text-xl font-light text-white">Trending</h1>
+    <section className="space-y-6">
+      <h1 className="text-xl font-light text-white md:text-[32px]">Trending</h1>
       <CarouselMovies />
-      {/* <CatalogueMovies title="Recommended for you" /> */}
+      <h2 className="text-xl font-light text-white md:text-[32px]">
+        Recommended for you
+      </h2>
+      <CatalogueMovies />
     </section>
   );
 }

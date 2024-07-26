@@ -35,10 +35,11 @@ export const CarouselMovies = () => {
             <CarouselItem className="basis-60 md:basis-[470px]" key={index}>
               <Card className="relative h-[140px] overflow-hidden rounded-xl border-none md:h-[230px]">
                 <CardHeader className="absolute right-2 top-2 z-10 p-0 md:right-4 md:top-4">
-                  <Button className="flex h-8 w-8 rounded-full bg-main-blue-dark/70">
-                    <div>
-                      <BookmarkEmpty />
-                    </div>
+                  <Button
+                    size={"icon"}
+                    className="rounded-full bg-main-blue-dark/70"
+                  >
+                    <BookmarkEmpty />
                   </Button>
                 </CardHeader>
                 <CardContent className="p-0">
