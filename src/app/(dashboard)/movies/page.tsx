@@ -23,7 +23,7 @@ const genres = [
   },
   {
     id: 12,
-    name: "Abenteuer",
+    name: "Adventure",
   },
   {
     id: 16,
@@ -31,15 +31,15 @@ const genres = [
   },
   {
     id: 35,
-    name: "Komödie",
+    name: "Comedy",
   },
   {
     id: 80,
-    name: "Krimi",
+    name: "Crime",
   },
   {
     id: 99,
-    name: "Dokumentarfilm",
+    name: "Documentary",
   },
   {
     id: 18,
@@ -49,7 +49,6 @@ const genres = [
 
 export default async function MoviesPage() {
   // const movies = await getMovies();
-  // const URL_IMAGE = "https://image.tmdb.org/t/p/original";
   return (
     <div>
       <h1 className="text-white">Esta es la pagina de movies </h1>
