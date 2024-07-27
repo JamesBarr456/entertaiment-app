@@ -1,5 +1,7 @@
 //Con esto se puede traer ya la pelicula
 
+import { GridGenres } from "@/components";
+
 // import Image from "next/image";
 
 // const getMovies = async (): Promise<any> => {
@@ -14,13 +16,43 @@
 
 //   return data;
 // };
+const genres = [
+  {
+    id: 28,
+    name: "Action",
+  },
+  {
+    id: 12,
+    name: "Adventure",
+  },
+  {
+    id: 16,
+    name: "Animation",
+  },
+  {
+    id: 35,
+    name: "Comedy",
+  },
+  {
+    id: 80,
+    name: "Crime",
+  },
+  {
+    id: 99,
+    name: "Documentary",
+  },
+  {
+    id: 18,
+    name: "Drama",
+  },
+];
 
 export default async function MoviesPage() {
   // const movies = await getMovies();
-  // const URL_IMAGE = "https://image.tmdb.org/t/p/original";
   return (
     <div>
-      <h1>Esta es la pagina de movies </h1>
+      <h1 className="text-white">Esta es la pagina de movies </h1>
+      <GridGenres array={genres} />
       {/* <Image
         src={`${URL_IMAGE}${movies.poster_path}`}
         alt="pelicula"
