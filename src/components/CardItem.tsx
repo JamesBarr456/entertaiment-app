@@ -13,12 +13,13 @@ function getYearFromReleaseDate(date: string): number {
 export const CardItem = (movie: Movie) => {
   return (
     <>
-      <Card className="relative h-[140px] overflow-hidden rounded-none border-none bg-transparent md:h-[230px]">
-        <CardHeader className="absolute right-2 top-2 z-10 p-0 md:right-4 md:top-4">
-          <Button className="flex h-8 w-8 rounded-full bg-main-blue-dark/70">
-            <div>
-              <BookmarkEmpty />
-            </div>
+      <Card className="relative overflow-hidden border-0 bg-inherit">
+        <CardHeader className="absolute z-10 flex w-full flex-row items-center space-y-0 p-2">
+          <Button
+            className="ms-auto rounded-full bg-main-blue-dark/70"
+            size={"icon"}
+          >
+            <BookmarkEmpty />
           </Button>
         </CardHeader>
         <CardContent className="p-0">
@@ -26,22 +27,20 @@ export const CardItem = (movie: Movie) => {
             src={`${TMDB_IMAGE_ENDPOINT}${movie.backdrop_path}`}
             alt={movie.title}
             className="h-full w-full rounded-lg object-cover"
-            width={250}
-            height={250}
+            width={100}
+            height={100}
           />
         </CardContent>
-        <CardFooter className="absolute inset-x-4 bottom-4 p-0 md:inset-x-6 md:bottom-6">
-          <div className="text-white">
-            <div className="flex items-center text-xs font-light md:text-base">
-              <span>{getYearFromReleaseDate(movie.release_date)}</span>
-              <Dot />
-              <div className="flex items-center gap-2">
-                <CategoryMovies />
-                <span>Movie</span>
-              </div>
+        <CardFooter className="flex-col items-start p-0 pt-2 text-white">
+          <div className="flex items-center text-xs font-light md:text-base">
+            <span>{getYearFromReleaseDate(movie.release_date)}</span>
+            <Dot />
+            <div className="flex items-center gap-2">
+              <CategoryMovies />
+              <span>Movie</span>
             </div>
-            <p className="font-medium md:text-2xl">{movie.title}</p>
           </div>
+          <p>{movie.title}</p>
         </CardFooter>
       </Card>
     </>

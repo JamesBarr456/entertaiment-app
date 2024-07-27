@@ -1,43 +1,33 @@
+"use client";
 import { CardItem } from "@/components/CardItem";
+
 import { Movie } from "@/interfaces/interfaces";
 import { TMDB_ENDPOINT, TMDB_TOKEN } from "@/lib/tmdb";
 
-// interface GetMovies {
-//   genre: string;
-//   page: number;
-// }
+import { Paginations } from "@/components";
+import usePaginationStore from "@/store/store";
+import { useFecthMovies } from "@/hooks/useMovie";
 
 interface Props {
   params: { id: string };
 }
 
-const getMovies = async (genre: any, page: number = 1) => {
-  const options = {
-    method: "GET",
-    headers: {
-      accept: "application/json",
-      Authorization: `Bearer ${TMDB_TOKEN}`,
-    },
-  };
-  const data = await fetch(
-    `${TMDB_ENDPOINT}/discover/movie?language=en-US&page=${page}&sort_by=popularity.desc&with_genres=${genre}`,
-    options,
-  )
-    .then((res) => res.json())
-    .catch((err) => {
-      console.log(err.message);
-    });
-  return data;
-};
+export default function GenrePage({ params }: Props) {
+  const genre = params.id;
 
-export default async function GenrePage({ params }: Props) {
-  const { results }: { results: Movie[] } = await getMovies(params.id, 1);
+  const { movies } = useFecthMovies(genre);
 
   return (
-    <section className="my-4 flex flex-wrap justify-between gap-4">
-      {results.map((result) => (
-        <CardItem key={result.id} {...result} />
-      ))}
+    <section>
+      <div className="my-4 grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-7 2xl:grid-cols-4">
+        {movies.map((movie) => (
+          <CardItem key={movie.id} {...movie} />
+        ))}
+      </div>
+      <div>
+        <Paginations />
+        {/* TODO: aqui le tenemos que mandar la cantidad de pages y el page actual */}
+      </div>
     </section>
   );
 }
