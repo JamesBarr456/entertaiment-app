@@ -29,6 +29,7 @@ export const CardItem = (movie: Movie) => {
             className="h-full w-full rounded-lg object-cover"
             width={100}
             height={100}
+            priority
           />
         </CardContent>
         <CardFooter className="flex-col items-start p-0 pt-2 text-white">

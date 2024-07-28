@@ -16,7 +16,6 @@ export default function GenrePage({ params }: Props) {
   const genre = params.id;
 
   const { movies } = useFecthMovies(genre);
-
   return (
     <section>
       <div className="my-4 grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-7 2xl:grid-cols-4">
