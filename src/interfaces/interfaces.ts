@@ -1,16 +1,54 @@
 export interface Movie {
   adult: boolean;
-  backdrop_path: string; // URL o ruta de la imagen de fondo
-  genre_ids: number[]; // Identificadores de género (probablemente corresponden a un enum o lista de géneros)
-  id: number; // Identificador único de la película
-  original_language: string; // Idioma original de la película
-  original_title: string; // Título original de la película
-  overview: string; // Descripción de la trama
-  popularity: number; // Popularidad (generalmente en una escala de 0 a 100)
-  poster_path: string; // URL o ruta del póster
-  release_date: string; // Fecha de estreno en formato 'YYYY-MM-DD'
-  title: string; // Título de la película
-  video: boolean; // Indica si hay un video relacionado
-  vote_Average: number; // Promedio de votos (escala de 0 a 10)
-  vote_count: number; // Número de votos recibidos
+  backdrop_path: string;
+  genre_ids: number[];
+  id: number;
+  original_language: string;
+  original_title: string;
+  overview: string;
+  popularity: number;
+  poster_path: string;
+  release_date: string;
+  title: string;
+  video: boolean;
+  vote_Average: number;
+  vote_count: number;
+}
+export interface Serie {
+  adult: boolean;
+  backdrop_path: string;
+  genre_ids: number[];
+  id: number;
+  origin_country: string[];
+  original_language: string;
+  original_name: string;
+  overview: string;
+  popularity: number;
+  poster_path: string;
+  first_air_date: string;
+  name: string;
+  vote_average: number;
+  vote_count: number;
+}
+
+export interface OptionsFecth {
+  method: string;
+  headers: {
+    accept: string;
+    Authorization: string;
+  };
+}
+export interface DiscoverFind {
+  page: number;
+  results: Movie[]; //Todo: hay que cambiar el nombre de movie por result o algo porque esta estrucutra tambien  es para series como movies
+  total_pages: number;
+  total_results: number;
+}
+export interface Genre {
+  id: number;
+  name: string;
+}
+
+export interface GenresFind {
+  genres: Genre[];
 }

@@ -2,7 +2,6 @@
 import { CardItem } from "@/components/CardItem";
 import { Paginations } from "@/components";
 import { useResults } from "@/hooks/useResults";
-// import { useFecthMovies } from "@/hooks/useMovie";
 
 interface Props {
   params: { id: string };
@@ -10,7 +9,8 @@ interface Props {
 
 export default function GenrePage({ params }: Props) {
   const genre = params.id;
-  const { results } = useResults("movie", genre);
+
+  const { results } = useResults("tv", genre);
 
   return (
     <section>

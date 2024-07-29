@@ -27,8 +27,8 @@ export const CardItem = (movie: Movie) => {
             src={`${TMDB_IMAGE_ENDPOINT}${movie.backdrop_path}`}
             alt={movie.title}
             className="h-full w-full rounded-lg object-cover"
-            width={100}
-            height={100}
+            width={150}
+            height={150}
             priority
           />
         </CardContent>
