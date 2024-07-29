@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 const fetchResults = async (
   type: string,
   page: number,
-  genre: string,
+  genre: string, //!Todo: Hacerlo opcional
 ): Promise<DiscoverFind> => {
   const url = `${urlFindDiscover}/${type}?language=en-US&page=${page}&sort_by=popularity.desc&with_genres=${genre}`;
   const response = await fetch(url, optionsFecthTMDB);
