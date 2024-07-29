@@ -47,25 +47,25 @@ export default function LoginPage() {
 
   return (
     <form onSubmit={onSubmit}>
-      <Card className="w-[350px] text-white md:p-2 md:w-[400px] font-outfit bg-main-blue-dark border-none rounded-2xl flex flex-col gap-6">
+      <Card className="w-[327px] space-y-4 rounded-2xl border-none bg-main-blue-dark text-white md:w-[400px]">
         <CardHeader>
-          <CardTitle className=" font-light text-3xl ">Login</CardTitle>
+          <CardTitle className="text-3xl font-light">Login</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="flex flex-col space-y-6">
+          <div className="space-y-6">
             {/* Aqui empieza el input de email */}
             <div className="relative">
               <Input
                 {...register("email", { required: "Can't be empty" })}
                 name="email"
                 placeholder="Email addres"
-                className={`border-b-gray-500 border-b bg-main-blue-dark caret-main-red ${
+                className={`border-b border-b-gray-500 bg-main-blue-dark caret-main-red ${
                   errors.password ? "border-b-main-red" : "border-b-gray-500"
                 }`}
                 autoComplete="off"
               />
               {errors.email || error === "Invalid email" ? (
-                <span className="absolute top-0.5 right-0 text-main-red text-sm">
+                <span className="absolute right-0 top-0.5 text-sm text-main-red">
                   {errors.email ? errors.email.message : error}
                 </span>
               ) : (
@@ -82,12 +82,12 @@ export default function LoginPage() {
                 type="password"
                 name="password"
                 placeholder="Password"
-                className={`border-b-gray-500 border-b bg-main-blue-dark  caret-main-red ${
+                className={`border-b border-b-gray-500 bg-main-blue-dark caret-main-red ${
                   errors.password ? "border-b-main-red" : "border-b-gray-500"
                 }`}
               />
               {errors.password || error === "Invalid password" ? (
-                <span className="absolute top-0.5 right-0 text-main-red text-sm">
+                <span className="absolute right-0 top-0.5 text-sm text-main-red">
                   {errors.password ? errors.password.message : error}
                 </span>
               ) : (
@@ -101,7 +101,7 @@ export default function LoginPage() {
         <CardFooter className="flex flex-col gap-6">
           <Button
             type="submit"
-            className=" py-4 font-light  bg-main-red w-full hover:bg-white hover:text-black"
+            className="w-full bg-main-red py-6 text-base font-light hover:bg-white hover:text-black"
           >
             Login your account
           </Button>

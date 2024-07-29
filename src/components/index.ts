@@ -1,5 +1,6 @@
+export { MovieCard } from "./MovieCard";
+export { MoviesGrid } from "./MoviesGrid";
 export { Paginations } from "./Paginations";
-
 export { GridGenres } from "./genre/GridGenres";
 export { CatalogueMovies } from "./CatalogueMovies";
 export { CarouselMovies } from "./CarouselMovies";

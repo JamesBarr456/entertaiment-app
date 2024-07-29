@@ -51,7 +51,7 @@ export default async function MoviesPage() {
   // const movies = await getMovies();
   return (
     <div>
-      <h1 className="text-white">Esta es la pagina de movies </h1>
+      <h1 className="text-xl font-light text-white md:text-[32px]">Movies</h1>
       <GridGenres array={genres} />
       {/* <Image
         src={`${URL_IMAGE}${movies.poster_path}`}

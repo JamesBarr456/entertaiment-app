@@ -32,12 +32,15 @@ export const CarouselMovies = () => {
       >
         <CarouselContent>
           {Array.from({ length: 5 }).map((_, index) => (
-            <CarouselItem className="basis-60 md:basis-[470px]" key={index}>
+            <CarouselItem
+              className="basis-60 cursor-pointer md:basis-[470px]"
+              key={index}
+            >
               <Card className="relative h-[140px] overflow-hidden rounded-xl border-none md:h-[230px]">
                 <CardHeader className="absolute right-2 top-2 z-10 p-0 md:right-4 md:top-4">
                   <Button
                     size={"icon"}
-                    className="rounded-full bg-main-blue-dark/70"
+                    className="rounded-full bg-main-blue-dark/50"
                   >
                     <BookmarkEmpty />
                   </Button>

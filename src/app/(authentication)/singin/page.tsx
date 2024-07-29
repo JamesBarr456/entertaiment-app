@@ -51,12 +51,12 @@ export default function SignUpPage() {
   });
   return (
     <form onSubmit={onSubmit}>
-      <Card className="w-[350px] md:w-[400px] md:p-2 font-outfit  text-white bg-main-blue-dark border-none rounded-2xl flex flex-col gap-6">
+      <Card className="w-[327px] space-y-4 rounded-2xl border-none bg-main-blue-dark text-white md:w-[400px]">
         <CardHeader>
-          <CardTitle className=" font-light text-3xl">Sign Up</CardTitle>
+          <CardTitle className="text-3xl font-light">Sign Up</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="flex flex-col space-y-6">
+          <div className="space-y-6">
             {/* Aqui empieza el input de email */}
             <div className="relative">
               <Input
@@ -70,12 +70,12 @@ export default function SignUpPage() {
                 id="email"
                 placeholder="Email addres"
                 autoComplete="nope"
-                className={`border-b-gray-500 border-b bg-main-blue-dark  caret-main-red ${
+                className={`border-b border-b-gray-500 bg-main-blue-dark caret-main-red ${
                   errors.password ? "border-b-main-red" : "border-b-gray-500"
                 }`}
               />
               {errors.email && (
-                <span className="absolute top-0.5 right-0 text-main-red text-sm ">
+                <span className="absolute right-0 top-0.5 text-sm text-main-red">
                   {errors.email.message}
                 </span>
               )}
@@ -96,12 +96,12 @@ export default function SignUpPage() {
                 type="password"
                 id="password"
                 placeholder="Password"
-                className={`border-b-gray-500 border-b bg-main-blue-dark  caret-main-red ${
+                className={`border-b border-b-gray-500 bg-main-blue-dark caret-main-red ${
                   errors.password ? "border-b-main-red" : "border-b-gray-500"
                 }`}
               />
               {errors.password && (
-                <span className="absolute top-0 right-0 w-3/4 text-end text-main-red text-sm">
+                <span className="absolute right-0 top-0 w-3/4 text-end text-sm text-main-red">
                   {errors.password.message}
                 </span>
               )}
@@ -124,14 +124,14 @@ export default function SignUpPage() {
                 type="password"
                 id="confirmPassword"
                 placeholder="Repeat Password"
-                className={`border-b-gray-500 border-b bg-main-blue-dark  caret-main-red ${
+                className={`border-b border-b-gray-500 bg-main-blue-dark caret-main-red ${
                   errors.confirmPassword
                     ? "border-b-main-red"
                     : "border-b-gray-500"
                 }`}
               />
               {errors.confirmPassword && (
-                <span className="absolute top-0.5 right-0 text-main-red text-sm">
+                <span className="absolute right-0 top-0.5 text-sm text-main-red">
                   {errors.confirmPassword.message}
                 </span>
               )}
@@ -141,7 +141,7 @@ export default function SignUpPage() {
           </div>
         </CardContent>
         <CardFooter className="flex flex-col gap-6">
-          <Button className="font-light bg-main-red w-full  hover:bg-white hover:text-black">
+          <Button className="w-full bg-main-red py-6 text-base font-light hover:bg-white hover:text-black">
             Creat on account
           </Button>
           <p className="font-light">
