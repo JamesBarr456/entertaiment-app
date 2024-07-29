@@ -1,11 +1,4 @@
-"use client";
-import { CardItem } from "@/components/CardItem";
-
-import { Movie } from "@/interfaces/interfaces";
-import { TMDB_ENDPOINT, TMDB_TOKEN } from "@/lib/tmdb";
-
 import { MovieCard, MoviesGrid, Paginations } from "@/components";
-import usePaginationStore from "@/store/store";
 import { useFecthMovies } from "@/hooks/useMovie";
 
 interface Props {
