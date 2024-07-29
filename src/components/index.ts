@@ -1,3 +1,4 @@
+export { ToogleGroupGenres } from "./ToogleGroupGenres";
 export { MovieCard } from "./MovieCard";
 export { MoviesGrid } from "./MoviesGrid";
 export { Paginations } from "./Paginations";

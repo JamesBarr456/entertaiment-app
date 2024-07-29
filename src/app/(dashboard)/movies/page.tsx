@@ -1,22 +1,6 @@
-//Con esto se puede traer ya la pelicula
+import { MoviesGrid, ToogleGroupGenres, MovieCard } from "@/components";
 
-import { GridGenres } from "@/components";
-
-// import Image from "next/image";
-
-// const getMovies = async (): Promise<any> => {
-//   const API_KEY = "d2a2c356ace0c552ee7f2d74affbc6a1";
-//   const URL_BASE = "https://api.themoviedb.org/3";
-
-//   const data = await fetch(`${URL_BASE}/movie/550?api_key=${API_KEY}`)
-//     .then((res) => res.json())
-//     .catch((err) => {
-//       console.log(err.message);
-//     });
-
-//   return data;
-// };
-const genres = [
+const genresList = [
   {
     id: 28,
     name: "Action",
@@ -48,17 +32,20 @@ const genres = [
 ];
 
 export default async function MoviesPage() {
-  // const movies = await getMovies();
+  //**
+  //*?
+  //*Todo: Llamar a la api para mostrar las movies y renderizarlo dentro de MoviesGrid
+  //*!Falta hacer la funcionalidad para cuando se seleccione el genero renderize nuevamente las movies pero con el genero seleccionado
   return (
     <div>
       <h1 className="text-xl font-light text-white md:text-[32px]">Movies</h1>
-      <GridGenres array={genres} />
-      {/* <Image
-        src={`${URL_IMAGE}${movies.poster_path}`}
-        alt="pelicula"
-        width={250}
-        height={250}
-      /> */}
+      <ToogleGroupGenres genres={genresList} />
+      {/* <MoviesGrid>
+        //** pasar la data por parametro a la MovieCard
+        {data.map(movie => (
+          <MovieCard index={id} {...data}/>
+        ))}
+      </MoviesGrid> */}
     </div>
   );
 }
