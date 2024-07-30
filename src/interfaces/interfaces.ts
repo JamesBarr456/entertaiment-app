@@ -44,6 +44,13 @@ export interface DiscoverFind {
   total_pages: number;
   total_results: number;
 }
+
+export interface DiscoverFindTV {
+  page: number;
+  results: Serie[]; //Todo: hay que cambiar el nombre de movie por result o algo porque esta estrucutra tambien  es para series como movies
+  total_pages: number;
+  total_results: number;
+}
 export interface Genre {
   id: number;
   name: string;
