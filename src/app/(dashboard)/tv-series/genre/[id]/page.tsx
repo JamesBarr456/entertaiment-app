@@ -1,4 +1,6 @@
-import { MovieCard, MoviesGrid, Paginations } from "@/components";
+"use client";
+import { CardItem } from "@/components/CardItem";
+import { Paginations } from "@/components";
 import { useResults } from "@/hooks/useResults";
 
 interface Props {
@@ -7,15 +9,16 @@ interface Props {
 
 export default function GenrePage({ params }: Props) {
   const genre = params.id;
-  const { results } = useResults("movie", genre);
+
+  const { results } = useResults("tv", genre);
 
   return (
     <section>
-      <MoviesGrid>
+      <div className="my-4 grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-7 2xl:grid-cols-4">
         {results.map((result) => (
-          <MovieCard key={result.id} {...result} />
+          <CardItem key={result.id} {...result} />
         ))}
-      </MoviesGrid>
+      </div>
       <div>
         <Paginations />
       </div>

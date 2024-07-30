@@ -44,7 +44,7 @@ export function Paginations() {
 
     return items;
   };
-  console.log(currentPage);
+
   return (
     <Pagination>
       <PaginationContent className="text-white">

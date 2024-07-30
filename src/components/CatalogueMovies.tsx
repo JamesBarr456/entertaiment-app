@@ -1,16 +1,18 @@
-import { MovieCard } from "./MovieCard";
-import { MoviesGrid } from "./MoviesGrid";
+import type { Movie } from "@/interfaces/interfaces";
+import { MoviesGrid, MovieCard } from "./";
 
-export const CatalogueMovies = () => {
-  //*Todo: Llamar a la api para mostrar las movies y renderizarlo dentro de MoviesGrid
+interface Props {
+  items: Movie[];
+}
+
+export const CatalogueMovies = ({ items }: Props) => {
   return (
     <article>
-      {/* <MoviesGrid>
-        //** pasar la data por parametro a la MovieCard
-        {data.map(movie => (
-          <MovieCard index={id} {...data}/>
+      <MoviesGrid>
+        {items.map((item) => (
+          <MovieCard key={item.id} {...item} />
         ))}
-      </MoviesGrid> */}
+      </MoviesGrid>
     </article>
   );
 };
