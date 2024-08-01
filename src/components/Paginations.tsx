@@ -7,7 +7,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
-import usePaginationStore from "@/store/store";
+import { usePaginationStore } from "@/store/store";
 
 export function Paginations() {
   // Llamamos al zustang para accder a los datos de paginacion

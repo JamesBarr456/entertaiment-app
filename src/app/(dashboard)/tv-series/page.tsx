@@ -1,4 +1,4 @@
-import { GridGenres } from "@/components";
+import { CardGenre, CollectionFilms, GridCards } from "@/components";
 import { fetchGenresTvSeries } from "@/lib/tmdb";
 
 export default async function TvSeriesPage() {
@@ -6,10 +6,15 @@ export default async function TvSeriesPage() {
 
   return (
     <div>
-      <div>
-        <h1 className="text-white">Esta es la pagina de tv-series </h1>
-        <GridGenres array={dataGenres.genres} type="tv-series" />
-      </div>
+      <h1 className="text-white">Tv Series </h1>
+      <GridCards>
+        {dataGenres.genres.map((genre) => (
+          <CardGenre key={genre.id} id={genre.id} name={genre.name} />
+        ))}
+      </GridCards>
+      <GridCards>
+        <CollectionFilms type="tv" />
+      </GridCards>
     </div>
   );
 }

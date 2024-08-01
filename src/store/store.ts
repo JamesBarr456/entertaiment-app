@@ -6,7 +6,12 @@ interface PaginationState {
   setCurrentPage: (page: number) => void;
   setTotalPages: (pages: number) => void;
 }
-const usePaginationStore = create<PaginationState>((set) => ({
+interface GenreState {
+  currentGenre: number;
+  setCurrentGenre: (genre: number) => void;
+}
+//Aqui manejamos la paginacion
+export const usePaginationStore = create<PaginationState>((set) => ({
   currentPage: 1,
   totalPages: 1,
 
@@ -14,4 +19,8 @@ const usePaginationStore = create<PaginationState>((set) => ({
   setTotalPages: (pages: number) => set({ totalPages: pages }),
 }));
 
-export default usePaginationStore;
+//Aqui manejamos los generos al hacer click
+export const useGenreStore = create<GenreState>((set) => ({
+  currentGenre: 0,
+  setCurrentGenre: (genre: number) => set({ currentGenre: genre }),
+}));

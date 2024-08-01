@@ -1,29 +1,34 @@
 "use client";
 
-import { DiscoverFind, Movie } from "@/interfaces/interfaces";
+import { DiscoverFind, Movie, Serie } from "@/interfaces/interfaces";
 import { optionsFecthTMDB, urlFindDiscover } from "@/lib/tmdb";
-import usePaginationStore from "@/store/store";
+import { usePaginationStore } from "@/store/store";
+
 import { useEffect, useState } from "react";
 
 const fetchResults = async (
   type: string,
   page: number,
-  genre: string,
+  genre: number,
 ): Promise<DiscoverFind> => {
-  const url = `${urlFindDiscover}/${type}?language=en-US&page=${page}&sort_by=popularity.desc&with_genres=${genre}`;
+  let url;
+  if (genre !== 0) {
+    url = `${urlFindDiscover}/${type}?language=en-US&page=${page}&sort_by=popularity.desc&with_genres=${genre}`;
+  } else {
+    url = `${urlFindDiscover}/${type}?language=en-US&page=${page}&sort_by=popularity.desc`;
+  }
+
   const response = await fetch(url, optionsFecthTMDB);
   const data = await response.json();
   return data;
 };
 
-export const useResults = (type: string, genre: string) => {
+export const useResults = (type: string, genre: number) => {
   const { currentPage, setTotalPages } = usePaginationStore();
-  const [results, setResults] = useState<Movie[]>([]);
-  console.log("prueba 1");
+  const [results, setResults] = useState<(Movie | Serie)[]>([]);
   useEffect(() => {
     const loadMovies = async () => {
       const moviesTmdb = await fetchResults(type, currentPage, genre);
-      console.log(moviesTmdb);
       setResults(moviesTmdb.results);
       setTotalPages(moviesTmdb.total_pages);
     };

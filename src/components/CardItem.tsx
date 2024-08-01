@@ -1,16 +1,28 @@
-import React from "react";
+import Image from "next/image";
+import { TMDB_IMAGE_ENDPOINT } from "@/lib/tmdb";
 import { Card, CardContent, CardFooter, CardHeader } from "./ui/card";
 import { Button } from "./ui/button";
 import { BookmarkEmpty, CategoryMovies } from "./icons";
-import Image from "next/image";
 import { Dot } from "lucide-react";
-import { Movie } from "@/interfaces/interfaces";
-import { TMDB_IMAGE_ENDPOINT } from "@/lib/tmdb";
-
+interface Props {
+  backdrop_path: string;
+  title: string;
+  release_date: string;
+  type: string;
+}
 function getYearFromReleaseDate(date: string): number {
   return new Date(date).getFullYear();
 }
-export const CardItem = (movie: Movie) => {
+export const CardItem = ({
+  backdrop_path,
+  release_date,
+  title,
+  type,
+}: Props) => {
+  const capitalizeFirstLetter = (str: string): string => {
+    if (str.length === 0) return str;
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  };
   return (
     <>
       <Card className="relative overflow-hidden border-0 bg-inherit">
@@ -24,24 +36,24 @@ export const CardItem = (movie: Movie) => {
         </CardHeader>
         <CardContent className="p-0">
           <Image
-            src={`${TMDB_IMAGE_ENDPOINT}${movie.backdrop_path}`}
-            alt={movie.title}
+            src={`${TMDB_IMAGE_ENDPOINT}${backdrop_path}`}
+            alt={title}
             className="h-full w-full rounded-lg object-cover"
-            width={150}
-            height={150}
+            width={100}
+            height={55}
             priority
           />
         </CardContent>
         <CardFooter className="flex-col items-start p-0 pt-2 text-white">
           <div className="flex items-center text-xs font-light md:text-base">
-            <span>{getYearFromReleaseDate(movie.release_date)}</span>
+            <span>{getYearFromReleaseDate(release_date)}</span>
             <Dot />
             <div className="flex items-center gap-2">
               <CategoryMovies />
-              <span>Movie</span>
+              <span>{capitalizeFirstLetter(type)}</span>
             </div>
           </div>
-          <p>{movie.title}</p>
+          <p>{title}</p>
         </CardFooter>
       </Card>
     </>

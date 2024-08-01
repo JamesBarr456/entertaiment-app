@@ -16,10 +16,10 @@ import { Button } from "@/components/ui/button";
 import { BookmarkEmpty, CategoryMovies } from "@/components/icons";
 import Image from "next/image";
 import { Dot } from "lucide-react";
-import { Movie } from "@/interfaces/interfaces";
+import { Movie, Serie } from "@/interfaces/interfaces";
 import { TMDB_IMAGE_ENDPOINT } from "@/lib/tmdb";
 interface Props {
-  items: Movie[];
+  items: (Movie | Serie)[];
 }
 export const CarouselMovies = ({ items }: Props) => {
   function getYearFromReleaseDate(date: string): number {

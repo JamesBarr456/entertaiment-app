@@ -13,7 +13,7 @@ export default async function HomePage() {
   const top10Movies = trendingMovies.results.slice(0, 10);
   const top10Rate = topRatedMovies.results.slice(0, 10);
   const top10TV = trendingTV.results.slice(0, 10);
-  console.log(top10TV);
+
   return (
     <section className="space-y-6">
       <h1 className="text-xl font-light text-white md:text-[32px]">
@@ -23,7 +23,8 @@ export default async function HomePage() {
       <h2 className="text-xl font-light text-white md:text-[32px]">
         Top Rated
       </h2>
-      <CatalogueMovies items={top10Rate} />
+
+      {/* <CatalogueMovies items={top10Rate} /> */}
       <h2 className="text-xl font-light text-white md:text-[32px]">Upcoming</h2>
       {/* <CarouselMovies items={top10TV} /> */}
     </section>
