@@ -14,25 +14,23 @@ export const CollectionFilms = ({ type }: Props) => {
   const { currentGenre } = useGenreStore();
   const { results } = useResults(type, currentGenre);
   return (
-    <div>
+    <div className="flex flex-col gap-10">
       <GridCards>
         {results.map((result) => (
           <CardItem
             key={result.id}
             backdrop_path={result.backdrop_path}
             type={type}
-            title={"title" in result ? result.title : result.name} // Manejar propiedades específicas de Movie y Serie
+            title={"title" in result ? result.title : result.name}
             release_date={
               "release_date" in result
                 ? result.release_date
                 : result.first_air_date
-            } // Manejar propiedades específicas
+            }
           />
         ))}
       </GridCards>
-      <div>
-        <Paginations />
-      </div>
+      <Paginations />
     </div>
   );
 };

@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 
 interface UseFetchResult<T> {
-  data: T[];
+  data: T | null;
   loading: boolean;
   error: Error | null;
 }
@@ -11,7 +11,7 @@ export const useFetch = <T>(
   url: string,
   options?: RequestInit,
 ): UseFetchResult<T> => {
-  const [data, setData] = useState<T[]>([]);
+  const [data, setData] = useState<T | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 
@@ -28,11 +28,11 @@ export const useFetch = <T>(
         }
 
         // Asegúrate de que la respuesta sea un array
-        const result: T[] = await response.json();
+        const result: T = await response.json();
         setData(result);
       } catch (error) {
         setError(error instanceof Error ? error : new Error("Unknown error"));
-        setData([]); // Asegúrate de que se devuelva un array vacío en caso de error
+        setData(null); // Asegúrate de que se devuelva un array vacío en caso de error
       } finally {
         setLoading(false);
       }

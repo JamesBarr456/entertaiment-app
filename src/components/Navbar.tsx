@@ -57,35 +57,6 @@ export const Navbar = () => {
               <AvatarFallback>CN</AvatarFallback>
             </Avatar>
           </DropdownMenuTrigger>
-          {/* <DropdownMenuContent className="mr-4 w-40 2xl:mb-4 2xl:ml-10 2xl:w-44">
-            <DropdownMenuLabel>My Account</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuGroup>
-              <DropdownMenuItem>
-                <User className="mr-2" />
-                <span>Profile</span>
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <Settings className="mr-2" />
-                <span>Settings</span>
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <Users className="mr-2" />
-                <span>Team</span>
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <Film className="mr-2" />
-                <span>Subscription</span>
-              </DropdownMenuItem>
-            </DropdownMenuGroup>
-            <DropdownMenuSeparator />
-            <DropdownMenuGroup>
-              <DropdownMenuItem>
-                <LogOut className="mr-2" />
-                <span>Log out</span>
-              </DropdownMenuItem>
-            </DropdownMenuGroup>
-          </DropdownMenuContent> */}
         </DropdownMenu>
       </nav>
     </header>

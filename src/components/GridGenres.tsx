@@ -5,7 +5,7 @@ interface Props {
 export const GridCards = ({ children }: Props) => {
   return (
     <>
-      <section className="my-4 flex flex-wrap justify-between gap-2">
+      <section className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-7 2xl:grid-cols-4">
         {children}
       </section>
     </>

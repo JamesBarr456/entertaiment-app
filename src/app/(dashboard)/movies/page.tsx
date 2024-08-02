@@ -1,22 +1,41 @@
 //Con esto se puede traer ya la pelicula
 
-import { CardGenre, CollectionFilms, GridCards } from "@/components";
+import { CollectionFilms, ToogleGroupGenres } from "@/components";
+import { useFetch } from "@/hooks/useFecth";
+import { GenresFind } from "../../../interfaces/interfaces";
 
-import { fetchGenresMovie } from "@/lib/tmdb";
+import {
+  fetchGenresMovie,
+  optionsFecthTMDB,
+  urlFindGenreMovie,
+} from "@/lib/tmdb";
 
 export default async function MoviesPage() {
   const dataGenres = await fetchGenresMovie();
+
   return (
-    <div>
-      <h1 className="text-white">Movies </h1>
-      <GridCards>
-        {dataGenres.genres.map((genre) => (
-          <CardGenre key={genre.id} id={genre.id} name={genre.name} />
-        ))}
-      </GridCards>
-      <GridCards>
-        <CollectionFilms type="movie" />
-      </GridCards>
-    </div>
+    <section className="flex flex-col gap-6">
+      <ToogleGroupGenres genres={dataGenres.genres} />
+      <CollectionFilms type="movie" />
+    </section>
   );
 }
+
+// export default function MoviesPage() {
+//   // const dataGenres = await fetchGenresMovie();
+//   const { data, loading, error } = useFetch<GenresFind>(
+//     urlFindGenreMovie,
+//     optionsFecthTMDB,
+//   );
+//   // console.log(data);
+//   if (loading) return <div>Loading...</div>;
+//   if (error) return <div>Error: {error.message}</div>;
+//   if (!data) return <div>No data found</div>;
+
+//   return (
+//     <section className="flex flex-col gap-6">
+//       <ToogleGroupGenres genres={data.genres} />
+//       <CollectionFilms type="movie" />
+//     </section>
+//   );
+// }

@@ -39,8 +39,8 @@ export const CardItem = ({
             src={`${TMDB_IMAGE_ENDPOINT}${backdrop_path}`}
             alt={title}
             className="h-full w-full rounded-lg object-cover"
-            width={100}
-            height={55}
+            width={150}
+            height={150}
             priority
           />
         </CardContent>
