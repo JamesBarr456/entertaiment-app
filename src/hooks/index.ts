@@ -1,3 +1,1 @@
-
-
-
+export { useResults } from "./useResults";

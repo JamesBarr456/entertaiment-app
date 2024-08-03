@@ -12,7 +12,7 @@ interface Props {
   type: string;
 }
 
-export const CardItem = ({
+export const CardCarouselFilms = ({
   backdrop_path,
   release_date,
   title,
@@ -20,35 +20,31 @@ export const CardItem = ({
 }: Props) => {
   return (
     <>
-      <Card className="relative overflow-hidden border-0 bg-inherit">
-        <CardHeader className="absolute z-10 flex w-full flex-row items-center space-y-0 p-2">
-          <Button
-            className="ms-auto rounded-full bg-main-blue-dark/70"
-            size={"icon"}
-          >
+      <Card className="relative h-[140px] overflow-hidden rounded-xl border-none md:h-[230px]">
+        <CardHeader className="absolute right-2 top-2 z-10 p-0 md:right-4 md:top-4">
+          <Button className="rounded-full bg-main-blue-dark/50" size={"icon"}>
             <BookmarkEmpty />
           </Button>
         </CardHeader>
         <CardContent className="p-0">
           <Image
             src={`${TMDB_IMAGE_ENDPOINT}${backdrop_path}`}
+            fill
             alt={title}
-            className="h-full w-full rounded-lg object-cover"
-            width={150}
-            height={150}
-            priority
           />
         </CardContent>
-        <CardFooter className="flex-col items-start p-0 pt-2 text-white">
-          <div className="flex items-center text-xs font-light md:text-base">
-            <span>{getYearFromReleaseDate(release_date)}</span>
-            <Dot />
-            <div className="flex items-center gap-2">
-              <CategoryMovies />
-              <span>{capitalizeFirstLetter(type)}</span>
+        <CardFooter className="absolute inset-x-4 bottom-4 p-0 md:inset-x-6 md:bottom-6">
+          <div className="text-white">
+            <div className="flex items-center text-xs font-light md:text-base">
+              <span>{getYearFromReleaseDate(release_date)}</span>
+              <Dot />
+              <div className="flex items-center gap-2">
+                <CategoryMovies />
+                <span>{capitalizeFirstLetter(type)}</span>
+              </div>
             </div>
+            <p className="font-medium md:text-2xl">{title}</p>
           </div>
-          <p>{title}</p>
         </CardFooter>
       </Card>
     </>

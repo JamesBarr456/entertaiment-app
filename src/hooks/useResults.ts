@@ -1,5 +1,3 @@
-"use client";
-
 import { DiscoverFind, Movie, Serie } from "@/interfaces/interfaces";
 import { optionsFecthTMDB, urlFindDiscover } from "@/lib/tmdb";
 import { usePaginationStore } from "@/store/store";

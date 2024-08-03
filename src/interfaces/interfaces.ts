@@ -1,3 +1,4 @@
+// Interfaz base para contenido común de películas y series
 export interface BaseContent {
   adult: boolean;
   backdrop_path: string;
@@ -27,31 +28,30 @@ export interface Serie extends BaseContent {
   name: string;
 }
 
-export interface OptionsFecth {
+// Interfaz para opciones de fetch
+export interface OptionsFetch {
   method: string;
   headers: {
     accept: string;
     Authorization: string;
   };
 }
+
+// Interfaz para los resultados de descubrimiento (películas y series)
 export interface DiscoverFind {
   page: number;
-  results: (Movie | Serie)[]; //Todo: hay que cambiar el nombre de movie por result o algo porque esta estrucutra tambien  es para series como movies
+  results: (Movie | Serie)[];
   total_pages: number;
   total_results: number;
 }
 
-export interface DiscoverFindTV {
-  page: number;
-  results: Serie[]; //Todo: hay que cambiar el nombre de movie por result o algo porque esta estrucutra tambien  es para series como movies
-  total_pages: number;
-  total_results: number;
-}
+// Interfaz para géneros
 export interface Genre {
   id: number;
   name: string;
 }
 
+// Interfaz para la búsqueda de géneros
 export interface GenresFind {
   genres: Genre[];
 }

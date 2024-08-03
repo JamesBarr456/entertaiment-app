@@ -1,14 +1,5 @@
-//Con esto se puede traer ya la pelicula
-
 import { CollectionFilms, ToogleGroupGenres } from "@/components";
-import { useFetch } from "@/hooks/useFecth";
-import { GenresFind } from "../../../interfaces/interfaces";
-
-import {
-  fetchGenresMovie,
-  optionsFecthTMDB,
-  urlFindGenreMovie,
-} from "@/lib/tmdb";
+import { fetchGenresMovie } from "@/lib/tmdb";
 
 export default async function MoviesPage() {
   const dataGenres = await fetchGenresMovie();
