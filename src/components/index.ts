@@ -1,3 +1,5 @@
+export { CollectionSearch } from "./CollectionSearch";
+
 export { CardCarouselFilms } from "./CardCarouselFilms";
 
 export { CollectionFilms } from "./CollectionFilms";
