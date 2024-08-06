@@ -28,6 +28,19 @@ export interface Serie extends BaseContent {
   name: string;
 }
 
+//Interfaz especifica para Search
+export interface SearchFilms extends BaseContent {
+  media_type: string;
+  original_title?: string;
+  release_date?: string;
+  title?: string;
+  video?: boolean;
+  origin_country?: string[];
+  original_name?: string;
+  first_air_date?: string;
+  name?: string;
+}
+
 // Interfaz para opciones de fetch
 export interface OptionsFetch {
   method: string;
@@ -38,11 +51,18 @@ export interface OptionsFetch {
 }
 
 // Interfaz para los resultados de descubrimiento (películas y series)
-export interface DiscoverFind {
+export interface Discover {
   page: number;
-  results: (Movie | Serie)[];
   total_pages: number;
   total_results: number;
+}
+
+export interface DiscoverFind extends Discover {
+  results: (Movie | Serie)[];
+}
+
+export interface DiscoverSearch extends Discover {
+  results: SearchFilms[];
 }
 
 // Interfaz para géneros

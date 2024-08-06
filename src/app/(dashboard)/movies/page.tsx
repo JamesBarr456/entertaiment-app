@@ -11,22 +11,3 @@ export default async function MoviesPage() {
     </section>
   );
 }
-
-// export default function MoviesPage() {
-//   // const dataGenres = await fetchGenresMovie();
-//   const { data, loading, error } = useFetch<GenresFind>(
-//     urlFindGenreMovie,
-//     optionsFecthTMDB,
-//   );
-//   // console.log(data);
-//   if (loading) return <div>Loading...</div>;
-//   if (error) return <div>Error: {error.message}</div>;
-//   if (!data) return <div>No data found</div>;
-
-//   return (
-//     <section className="flex flex-col gap-6">
-//       <ToogleGroupGenres genres={data.genres} />
-//       <CollectionFilms type="movie" />
-//     </section>
-//   );
-// }

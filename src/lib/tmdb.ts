@@ -1,5 +1,6 @@
 import {
   DiscoverFind,
+  DiscoverSearch,
   GenresFind,
   OptionsFetch,
 } from "../interfaces/interfaces";
@@ -48,6 +49,7 @@ export const urlTrendingMovies = `${TMDB_ENDPOINT}/trending/movie/week`;
 export const urlTopRatedMovies = `${TMDB_ENDPOINT}/movie/top_rated?language=en-US&page=1`;
 export const urlTrendingTV = `${TMDB_ENDPOINT}/trending/tv/week?language=en-US`;
 export const urlTopRatedTV = `${TMDB_ENDPOINT}/tv/top_rated?language=en-US&page=1`;
+export const urlSearchFilms = `${TMDB_ENDPOINT}/search/multi`;
 //-----------------------------------------------
 
 //-----------------------------------------------
@@ -91,6 +93,16 @@ export async function fetchTrendingTV(): Promise<DiscoverFind> {
 export async function fetchTopRatedTv(): Promise<DiscoverFind> {
   return fetchData<DiscoverFind>({
     url: urlTopRatedTV,
+    options: optionsFecthTMDB,
+  });
+}
+
+export async function fetchSearchFilms(
+  name: string,
+  page: number,
+): Promise<DiscoverSearch> {
+  return fetchData<DiscoverSearch>({
+    url: urlSearchFilms + "?query=" + name + "&page=" + page,
     options: optionsFecthTMDB,
   });
 }
