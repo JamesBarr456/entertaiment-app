@@ -1,7 +1,7 @@
 "use client";
 import { CardItem } from "./CardItem";
 import { Paginations } from "./Paginations";
-import { GridCards } from "./GridGenres";
+import { GridCards } from "./GridCards";
 import { SearchFilms } from "@/interfaces/interfaces";
 import { useEffect, useState } from "react";
 import { fetchSearchFilms } from "@/lib/tmdb";

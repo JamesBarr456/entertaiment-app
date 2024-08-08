@@ -4,7 +4,7 @@ import { useResults } from "@/hooks/useResults";
 import { CardItem } from "./CardItem";
 import { Paginations } from "./Paginations";
 import { useGenreStore } from "@/store/store";
-import { GridCards } from "./GridGenres";
+import { GridCards } from "./GridCards";
 
 interface Props {
   type: "movie" | "tv";

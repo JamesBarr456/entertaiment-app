@@ -2,8 +2,8 @@ import { Navbar, SearchBar } from "@/components";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "SEO Title desde layout dashboard",
-  description: "SEO Title",
+  title: "Entertaiment Home",
+  description: "Entertaiment show films",
 };
 
 export default function DashboardLayout({

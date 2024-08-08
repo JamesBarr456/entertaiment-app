@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { Button } from './ui/button';
-import { usePathname } from 'next/navigation';
+import Link from "next/link";
+import { Button } from "./ui/button";
+import { usePathname } from "next/navigation";
 
 interface Props {
   id: number;
@@ -16,9 +16,7 @@ export const NavLinks = ({ icon, path }: Props) => {
 
   return (
     <Button asChild variant="link" size="icon">
-      <Link className={isActive ? 'text-white' : ''} href={path}>
-        {icon}
-      </Link>
+      <Link href={path}>{icon}</Link>
     </Button>
   );
 };

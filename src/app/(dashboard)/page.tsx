@@ -1,16 +1,10 @@
 import { CarouselFilms, CatalogueFilms } from "@/components";
-import {
-  fetchTopRatedMovies,
-  fetchTopRatedTv,
-  fetchTrendingMovies,
-  fetchTrendingTV,
-} from "@/lib/tmdb";
 
 export default async function HomePage() {
-  const trendingMovies = (await fetchTrendingMovies()).results.slice(0, 10);
+  /* const trendingMovies = (await fetchTrendingMovies()).results.slice(0, 10);
   const topRatedMovies = (await fetchTopRatedMovies()).results.slice(0, 10);
   const trendingTV = (await fetchTrendingTV()).results.slice(0, 10);
-  const topRatedTv = (await fetchTopRatedTv()).results.slice(0, 10);
+  const topRatedTv = (await fetchTopRatedTv()).results.slice(0, 10); */
 
   return (
     <section className="space-y-6">

@@ -6,14 +6,14 @@ import { BookmarkEmpty, CategoryMovies } from "./icons";
 import { Dot } from "lucide-react";
 import { capitalizeFirstLetter, getYearFromReleaseDate } from "@/lib/utils";
 interface Props {
-  backdrop_path: string;
+  urlImg: string;
   title: string;
   release_date: string;
   type: string;
 }
 
 export const CardCarouselFilms = ({
-  backdrop_path,
+  urlImg,
   release_date,
   title,
   type,
@@ -27,11 +27,7 @@ export const CardCarouselFilms = ({
           </Button>
         </CardHeader>
         <CardContent className="p-0">
-          <Image
-            src={`${TMDB_IMAGE_ENDPOINT}${backdrop_path}`}
-            fill
-            alt={title}
-          />
+          <Image src={`${TMDB_IMAGE_ENDPOINT}${urlImg}`} fill alt={title} />
         </CardContent>
         <CardFooter className="absolute inset-x-4 bottom-4 p-0 md:inset-x-6 md:bottom-6">
           <div className="text-white">
@@ -40,7 +36,7 @@ export const CardCarouselFilms = ({
               <Dot />
               <div className="flex items-center gap-2">
                 <CategoryMovies />
-                <span>{capitalizeFirstLetter(type)}</span>
+                <span className="capitalize">{type}</span>
               </div>
             </div>
             <p className="font-medium md:text-2xl">{title}</p>

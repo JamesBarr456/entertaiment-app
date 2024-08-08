@@ -1,11 +1,6 @@
-import Image from "next/image";
-import { Card, CardContent, CardFooter, CardHeader } from "./ui/card";
-import img2 from "@/assets/thumbnails/the-great-lands/regular/small.jpg";
-import { Button } from "./ui/button";
-import { BookmarkEmpty, CategoryMovies } from "./icons";
-import { Dot } from "lucide-react";
 import { CardItem } from "./CardItem";
-import { Movie, Serie } from "@/interfaces/interfaces";
+import { GridCards } from "./GridCards";
+import type { Movie, Serie } from "@/interfaces/interfaces";
 
 interface Props {
   items: (Movie | Serie)[];
@@ -14,7 +9,7 @@ interface Props {
 export const CatalogueFilms = ({ items, type }: Props) => {
   return (
     <article>
-      <section className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-7 2xl:grid-cols-4">
+      <GridCards>
         {items.map((item) => (
           <CardItem
             key={item.id}
@@ -26,7 +21,7 @@ export const CatalogueFilms = ({ items, type }: Props) => {
             }
           />
         ))}
-      </section>
+      </GridCards>
     </article>
   );
 };

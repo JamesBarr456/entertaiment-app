@@ -2,7 +2,6 @@ import {
   DiscoverFind,
   DiscoverSearch,
   GenresFind,
-  OptionsFetch,
 } from "../interfaces/interfaces";
 //-----------------------------------------------
 // Aqui los endpoints y el API_KEY
@@ -12,19 +11,8 @@ export const TMDB_TOKEN = process.env.TMDB_TOKEN;
 //-----------------------------------------------
 
 //-----------------------------------------------
-//Esto es para mandarle las optiones al fecth
-export const optionsFecthTMDB = {
-  method: "GET",
-  headers: {
-    accept: "application/json",
-    Authorization: `Bearer ${TMDB_TOKEN}`,
-  },
-};
-//-----------------------------------------------
-
-//-----------------------------------------------
 //Funcion Generica para realizar una peticion fetch y traer los datos
-async function fetchData<T>({
+/* async function fetchData<T>({
   url,
   options,
 }: {
@@ -37,25 +25,55 @@ async function fetchData<T>({
   }
   const data: T = await response.json();
   return data;
-}
-//-----------------------------------------------
+} */
+
+export const fetchData = async (url: string) => {
+  const response = await fetch(url, {
+    method: "GET",
+    headers: {
+      accept: "application/json",
+      Authorization: `Bearer ${TMDB_TOKEN}`,
+    },
+  });
+  const data = await response.json();
+
+  return data;
+};
 
 //-----------------------------------------------
-//Aqui agregamos las url´s donde hacer las peticiones
-export const urlFindDiscover = `${TMDB_ENDPOINT}/discover`;
-export const urlFindGenreTvSerie = `${TMDB_ENDPOINT}/genre/tv/list?language=en`;
-export const urlFindGenreMovie = `${TMDB_ENDPOINT}/genre/movie/list?language=en`;
-export const urlTrendingMovies = `${TMDB_ENDPOINT}/trending/movie/week`;
-export const urlTopRatedMovies = `${TMDB_ENDPOINT}/movie/top_rated?language=en-US&page=1`;
-export const urlTrendingTV = `${TMDB_ENDPOINT}/trending/tv/week?language=en-US`;
-export const urlTopRatedTV = `${TMDB_ENDPOINT}/tv/top_rated?language=en-US&page=1`;
-export const urlSearchFilms = `${TMDB_ENDPOINT}/search/multi`;
+type MediaType = "tv" | "movie";
+
+export const urlGenresList = (type: MediaType) =>
+  `${TMDB_ENDPOINT}/genre/${type}/list`; //trae los 2 de arriba
+//trae los generos disponibles para tv o movie. solo acepta lenguaje como QueryParams
+
+export const urlTrendingList = (type: MediaType) =>
+  `${TMDB_ENDPOINT}/trending/${type}/week`;
+//solo acepta languaje como queryparams
+
+type CategoryProps = "now_playing" | "popular" | "top_rated" | "upcoming";
+
+export const urlCategoryList = (
+  type: MediaType,
+  category: CategoryProps,
+  page: number = 1,
+) => `${TMDB_ENDPOINT}/${type}/${category}?language=en-US&page=${page}`;
+//trae data ordenado por clasificacion. acepta languaje, page y region como queryparams
+
+export const urlSearchFilm = (
+  type: MediaType,
+  inputText: string,
+  page: number = 1,
+) =>
+  `${TMDB_ENDPOINT}/search/${type}?query=${inputText}&include_adult=false&language=en-US&page=${page}`;
+//busca la pelicula o tv desde el input
+
 //-----------------------------------------------
 
 //-----------------------------------------------
 //aqui agregamos las funciones de peticiones
 
-export async function fetchGenresTvSeries(): Promise<GenresFind> {
+/* export async function fetchGenresTvSeries(): Promise<GenresFind> {
   return fetchData<GenresFind>({
     url: urlFindGenreTvSerie,
     options: optionsFecthTMDB,
@@ -105,5 +123,5 @@ export async function fetchSearchFilms(
     url: urlSearchFilms + "?query=" + name + "&page=" + page,
     options: optionsFecthTMDB,
   });
-}
+} */
 //-----------------------------------------------

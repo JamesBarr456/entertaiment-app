@@ -1,3 +1,7 @@
+interface Props extends React.SVGProps<SVGSVGElement> {
+  color: string;
+}
+
 export const Home = () => {
   return (
     <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg">

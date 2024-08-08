@@ -5,9 +5,9 @@ interface Props {
 }
 
 export const Movies = ({
-  color = '#5A698F',
+  color = "#5A698F",
   height = 20,
-  width = 20
+  width = 20,
 }: Props) => {
   return (
     <svg width={width} height={height} xmlns="http://www.w3.org/2000/svg">
